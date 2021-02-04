@@ -23,7 +23,8 @@ class EnterDataController extends Controller {
     public function index(){
         $dates = DB::select('select * from purchase_data');
         $service_names = DB::select('select * from services_list');
-        return view('insertData',['dates'=>$dates, 'service_names'=>$service_names]);
+        $air_lists = DB::select('select * from air_list');
+        return view('insertData',['dates'=>$dates, 'service_names'=>$service_names, 'air_lists'=>$air_lists]);
     }
 
     public function create(Request $request){
@@ -36,14 +37,18 @@ class EnterDataController extends Controller {
         $AIR= $request->input('AIR');
         $TKT_NO= $request->input('TKT_NO');
         $VENDORE= $request->input('VENDOR');
+        $CLIENT = $request->input('CLIENTS');
         $PAYABLE= $request->input('PAYABLE');
         $PAID= $request->input('PAID');
         $DUE = $PAYABLE - $PAID;
-        $time =date("Y-m-d H:i:s");
+        $RECEIVEABLE= $request->input('RECEIVEABLE');
+        $RECEIVED= $request->input('RECEIVED');
+        $TO_PAY = $RECEIVEABLE - $RECEIVED;
+        $time =date("Y-m-d");
 
         try{
-            $datas = DB::insert('insert into purchase_data (DATE, PAX, SERVICE, PNR, P_P_NO, SECTOR, AIR, TKT_NO, VENDOR, PAYABLE, PAID, DUE, CLIENT) 
-            values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [$time, $PAX, $SERVICE, $PNR, $P_P_NO, $SECTOR, $AIR, $TKT_NO, $VENDORE, $PAYABLE, $PAID, $DUE, 'something']);
+            $datas = DB::insert('insert into purchase_data (DATE, PAX, SERVICE, PNR, P_P_NO, SECTOR, AIR, TKT_NO, VENDOR, PAYABLE, PAID, DUE, CLIENT, RECEIVEABLE, RECEIVED, TO_PAY) 
+            values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [$time, $PAX, $SERVICE, $PNR, $P_P_NO, $SECTOR, $AIR, $TKT_NO, $VENDORE, $PAYABLE, $PAID, $DUE, $CLIENT, $RECEIVEABLE, $RECEIVED, $TO_PAY]);
             return redirect('insert')->with('status',"Insert successfully");
         }catch(Exception $e){
             return redirect('insert')->with('failed',"operation failed");

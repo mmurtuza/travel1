@@ -30,7 +30,7 @@ Route::post('/insert2', [App\Http\Controllers\EnterDataController::class, 'creat
 Route::get('/search', [App\Http\Controllers\Search2Controller::class, 'index']);
 
 Route::post('/search', [App\Http\Controllers\Search2Controller::class, 'show']);
-Route::get('/sell', [App\Http\Controllers\HomeController::class, 'sell']);
+// Route::get('/sell', [App\Http\Controllers\HomeController::class, 'sell']);
 Route::get('/client/{id}', [App\Http\Controllers\HomeController::class, 'client']);
 Route::get('/vendor/{id}', [App\Http\Controllers\HomeController::class, 'vendor']);
 // Route::get('insert', [App\Http\Controllers\EnterDataController::class, 'insertform']);

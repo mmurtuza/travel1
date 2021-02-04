@@ -25,12 +25,12 @@
                 <div class="form-row">
               <div class="form-group col-8">
                 <label >PAX</label>
-                <input name="PAX" class="form-control" >   
+                <input name="PAX" class="form-control" autofocus="autofocus" >   
               </div>
               <div class="form-group col">
-                <label for="exampleInputPassword1">Service</label>
+                <label >Service</label>
                 <select class="form-control" name="SERVICE" >
-                  <option selected>Air Ticket</option>
+                {{-- <option selected>Air Ticket</option> --}}
                   @foreach ($service_names as $service_name)
                   <option >{{ $service_name->SERVICE }}</option>
                   @endforeach
@@ -40,12 +40,12 @@
 
             <div class="form-row">
               <div class="form-group col">
-                <label for="exampleInputPassword1">PNR</label>
+                <label >PNR</label>
                 <input type="text" class="form-control" name="PNR" >
               </div>
               
               <div class="form-group col">
-                <label for="exampleInputPassword1">P.P NO</label>
+                <label>P.P NO</label>
                 <input type="text" class="form-control" name="P_P_NO" >
               </div>
             </div>
@@ -58,7 +58,11 @@
               
               <div class="form-group col">
                 <label for="exampleInputPassword1">AIR</label>
-                <input type="text" class="form-control" name="AIR" >
+                <select class="form-control" name="name" >
+                  @foreach ($air_lists as $air_list)
+                    <option >{{ $air_list->name }} </option>
+                  @endforeach
+                </select>
               </div>
             </div>
               
@@ -82,15 +86,34 @@
                 <label for="exampleInputPassword1">PAID     </label>
                 <input type="text" class="form-control"  name="PAID" >
               </div>
+              
               {{-- <div class="form-group col">
                 <label for="exampleInputPassword1">DUE</label>
                 <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
               </div> --}}
             </div>
+            <div class = "form-row">
+                
+                
+              <div class="form-group col">
+                <label for="exampleInputPassword1">CLIENT</label>
+                <input type="text" class="form-control" name="CLIENTS" >
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col">
+                <label for="exampleInputPassword1">RECEIVEABLE </label>
+                <input type="text" class="form-control" name="RECEIVEABLE" >
+              </div>
+              <div class="form-group col">
+                <label for="exampleInputPassword1">RECEIVED</label>
+                <input type="text" class="form-control"  name="RECEIVED" >
+              </div>
               {{-- <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
               </div> --}}
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
             </form>
           </div>

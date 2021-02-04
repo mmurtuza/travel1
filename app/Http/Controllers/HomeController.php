@@ -28,8 +28,9 @@ class HomeController extends Controller
     {
         $datas = DB::select('select * from client_list');
         $vendors = DB::select('select * from vendor_list');
+        $air_lists = DB::select('select * from air_list');
         $service_names = DB::select('select * from services_list');
-        return view('home',['datas'=>$datas, 'vendors'=>$vendors]);
+        return view('home',['datas'=>$datas, 'vendors'=>$vendors, 'air_lists'=>$air_lists]);
     }
     public function sell()
     {
@@ -45,7 +46,7 @@ class HomeController extends Controller
         // $vendors = DB::select('select * from vendor_list');
         // $service_names = DB::select('select * from sells_data where vendor like $id');
         // return view('pages/menu',['datas'=>$datas, 'vendors'=>$vendors,'service_names'=>$service_names]);
-        $dates = DB::table('sells_data')->where('vendor',$id)->get();
+        $dates = DB::table('purchase_data')->where('vendor',$id)->get();
         // $service_names = DB::select('select * from services_list');
         return view('menu',['dates'=>$dates]);
     }

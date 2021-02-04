@@ -25,8 +25,8 @@
                                     <a class="btn btn-primary" href="../insert">
                                        New Purchase
                                     </a>
-                                    <a class="btn btn-primary" href="../sell">
-                                        New Sell
+                                    <a class="btn btn-primary" href="#">
+                                        Reissue
                                      </a>
                                     <a class="btn btn-primary" href="../search">
                                         Search Record
