@@ -26,11 +26,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $datas = DB::select('select * from client_list');
+        $clients = DB::select('select * from client_list');
         $vendors = DB::select('select * from vendor_list');
         $air_lists = DB::select('select * from air_list');
         $service_names = DB::select('select * from services_list');
-        return view('home',['datas'=>$datas, 'vendors'=>$vendors, 'air_lists'=>$air_lists]);
+        return view('home',['clients'=>$clients, 'vendors'=>$vendors, 'air_lists'=>$air_lists]);
     }
     public function sell()
     {

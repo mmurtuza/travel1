@@ -21,6 +21,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('');
 
 Route::get('/menu', [App\Http\Controllers\dataViewController::class, 'index'])->name('');
 
