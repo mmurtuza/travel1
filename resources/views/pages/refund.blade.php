@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -32,14 +31,15 @@
                                         <input name="tkt_no" class="form-control">
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Submit</button> <br>
                             </form>
                         </div>
-                        <div style="height: 30px;"></div>
-                        <button onclick="window.print()" class="btn btn-primary">Print</button>
                     </div>
+
+
                 </div>
             </div>
         </div>
     </div>
+
 @endsection

@@ -25,6 +25,9 @@
                                         <a class="btn btn-primary" href="../insert">
                                             New Purchase
                                         </a>
+                                        <a class="btn btn-primary" href="../refund">
+                                            Refund
+                                        </a>
                                         <a class="btn btn-primary" href="#">
                                             Reissue
                                         </a>
@@ -34,9 +37,6 @@
                                         {{-- <a class="btn btn-primary" href="../insert">
                                         Update Record
                                      </a> --}}
-                                        <a class="btn btn-primary" href="../insert">
-                                            Refund Record
-                                        </a>
                                         <a class="btn btn-primary" href="../menu">
                                             All Record
                                         </a>

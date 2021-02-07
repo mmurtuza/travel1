@@ -73,7 +73,17 @@ class Search2Controller extends Controller
         // $dates = DB::select('select * from purchase_data where TKT_NO LIKE tkt');
          $dates = DB::table('purchase_data')->where('TKT_NO',$tkt)->get();
         // $service_names = DB::select('select * from services_list');
-        return view('menu',['dates'=>$dates]);
+        return view('pages\searchResult',['dates'=>$dates]);
+    }
+
+    public function refund(Request $request)
+    {
+        //
+        $tkt = $request->input('tkt_no');
+        // $dates = DB::select('select * from purchase_data where TKT_NO LIKE tkt');
+         $dates = DB::table('purchase_data')->where('TKT_NO',$tkt)->get();
+        // $service_names = DB::select('select * from services_list');
+        return view('pages/refund',['dates'=>$dates]);
     }
 
     /**

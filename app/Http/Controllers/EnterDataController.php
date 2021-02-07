@@ -76,7 +76,8 @@ class EnterDataController extends Controller {
                 values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [$time, $PAX, $SERVICE, $PNR, $P_P_NO, $SECTOR, $AIR, $TKT_NO, $VENDORE, $PAYABLE, $PAID, $DUE, $CLIENT, $RECEIVEABLE, $RECEIVED, $TO_PAY]);
                 $data2 = DB::update('update client_list set RECIVABLE = RECIVABLE + ? where CLINENTS = ?', [$RECEIVEABLE, $CLIENT]);
                 $vendoreup = DB::update('update vendor_list set payables = payables + ? - ? , paid = ? where vendor = ?', [$PAYABLE, $PAID, $PAID, $VENDORE]);
-                return redirect('insert')->with('status',"Insert successfully");
+                $dates = DB::select('select * from purchase_data ORDER BY id DESC LIMIT 1');
+                return view('pages/searchResult',['dates'=>$dates]);
             }catch(Exception $e){
                 return redirect('insert')->with('failed',"operation failed");
             }
